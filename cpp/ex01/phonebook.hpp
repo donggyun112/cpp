@@ -1,9 +1,18 @@
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
+
 #include <iostream>
 #include <string>
 #include "command_accse.hpp"
+#include "phonebook.hpp"
+# include <iomanip>
+
+class PhoneBook;
+
 
 class Contact {
 public:
+
     Contact() {}
 
 	void setFirstName(const std::string& firstName) {
@@ -34,7 +43,7 @@ public:
 		return lastName_;
     }
 
-    std::string getNickname() const {
+    std::string const &getNickname() const {
 		return nickname_;
     }
 
@@ -53,3 +62,5 @@ private:
     std::string phoneNumber_;
     std::string darkestSecret_;
 };
+
+# endif
