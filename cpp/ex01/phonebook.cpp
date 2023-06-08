@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dongkseo <dongkseo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dongkseo <student.42seoul.kr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 00:05:35 by dongkseo          #+#    #+#             */
-/*   Updated: 2023/06/08 01:30:21 by dongkseo         ###   ########.fr       */
+/*   Updated: 2023/06/08 03:19:51 by dongkseo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
+#include <string>
 
 std :: string info_box[8][5];
 
@@ -23,19 +24,20 @@ void	select_info()
 		"phone number",
 		"secret      "
 	};
-	int	num;
+	std::string str;
 	std::cout<<"Find Info : ";
-	std::cin>>num;
-	std::cin.ignore();
+	std::cin>>str;
 	if (std::cin.eof() || std::cin.fail())
 	{
 		std::cin.clear();
-		std::cout << "\033[0;31mRejected value (denyed)\n";
-		exit(1);
+		std::cin.ignore();
+		return ;
 	}
-	if (num < 0 || num > size - 1)
+	int	num = std :: atoi(str.c_str());
+	if (num < 0 || num > size - 1 || std :: to_string(num) != str)
 	{
 		std::cout << "INVALID VALUE\n";
+		std::cin.ignore();
 		select_info();
 		return ;
 	}
@@ -45,6 +47,7 @@ void	select_info()
 		std::cout << info[i] << " : ";
 		std :: cout << info_box[num][i] << "\n";
 	}
+	std::cin.ignore();
 }
 
 void	print_info()
@@ -97,7 +100,7 @@ int main(void)
 	{
 		std :: string cmd;
 		std :: cout << "command(ADD/SEARCH/EXIT) : ";
-		getline(std :: cin, cmd, '\n');
+		std :: getline(std :: cin, cmd, '\n');
 		if (std::cin.eof() || std::cin.fail())
 			break ;
 		if (cmd == "EXIT")
@@ -108,7 +111,7 @@ int main(void)
 			for (int i = 0; i < NUM_FIELDS; i++)
 			{
 				std :: cout << info[i] << ": ";
-				getline(std :: cin, data, '\n');
+				std :: getline(std :: cin, data, '\n');
 				if (i == 3 && check_data(data))
 				{
 					i--;
