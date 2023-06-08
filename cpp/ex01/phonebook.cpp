@@ -3,20 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dongkseo <student.42seoul.kr>              +#+  +:+       +#+        */
+/*   By: dongkseo <dongkseo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 00:05:35 by dongkseo          #+#    #+#             */
-/*   Updated: 2023/06/08 03:19:51 by dongkseo         ###   ########.fr       */
+/*   Updated: 2023/06/08 22:59:45 by dongkseo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
 #include <string>
 
+int	j;
+int	size;
+
+const int NUM_FIELDS = 5;
 std :: string info_box[8][5];
 
 void	select_info()
 {
+	utils	func;
 	std :: string info[5] = {
 		"first name  ",
 		"last name   ",
@@ -33,8 +38,8 @@ void	select_info()
 		std::cin.ignore();
 		return ;
 	}
-	int	num = std :: atoi(str.c_str());
-	if (num < 0 || num > size - 1 || std :: to_string(num) != str)
+	int	num = std::atoi(str.c_str());
+	if (num < 0 || num > size - 1 || func.my_to_string(num) != str)
 	{
 		std::cout << "INVALID VALUE\n";
 		std::cin.ignore();
@@ -107,19 +112,6 @@ int main(void)
 			return (0);
 		if (cmd == "ADD")
 		{
-			std :: string data;
-			for (int i = 0; i < NUM_FIELDS; i++)
-			{
-				std :: cout << info[i] << ": ";
-				std :: getline(std :: cin, data, '\n');
-				if (i == 3 && check_data(data))
-				{
-					i--;
-					std::cout << "It's not a number\n";
-					continue;
-				}
-				info_box[j][i] = data;
-			}
 			j++;
 			size++;
 		}

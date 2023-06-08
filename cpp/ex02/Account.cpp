@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dongkseo <dongkseo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 17:33:29 by dongkseo          #+#    #+#             */
-/*   Updated: 2023/06/08 22:19:57 by dongkseo         ###   ########.fr       */
+/*   Created: 2023/06/08 20:12:40 by dongkseo          #+#    #+#             */
+/*   Updated: 2023/06/08 20:20:31 by dongkseo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iostream>
+#include "Account.hpp"
 
-int main(int ac, char **av)
+Account::Account(void)
 {
-	if (ac > 1)
-	{
-		std :: string str;
-		for (int i = 1; i < ac; i++)
-			str += av[i];
-		for (unsigned long i = 0; i < str.length(); i++)
-			str[i] = static_cast<char>(std::toupper(str[i]));
-		std :: cout << str << std :: endl;
-		
-	}
-	else
-		std :: cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std :: endl;
-	return (0);
+	
+}
+
+Account::~Account(void)
+{
+	
+}
+
+int	Account::getNbAccounts(void)
+{
+	
 }
