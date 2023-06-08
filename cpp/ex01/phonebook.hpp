@@ -1,44 +1,55 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dongkseo <dongkseo@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 00:05:30 by dongkseo          #+#    #+#             */
-/*   Updated: 2023/06/08 22:57:51 by dongkseo         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include <iostream>
+#include <string>
+#include "command_accse.hpp"
 
-#ifndef PHONEBOOK_H
-# define PHONEBOOK_H
+class Contact {
+public:
+    Contact() {}
 
-# include <iostream>
+	void setFirstName(const std::string& firstName) {
+        firstName_ = firstName;
+    }
 
-class utils{
-	private:
-		std::string str;
-		void	add_string(int num)
-		{
-			char data;
-			if (num < 0)
-			{
-				num *= -1;
-				this->str += "-";
-			}
-			if (num > 9)
-				add_string(num / 10);
-			data = (num % 10 + '0');
-			this->str += data;
-		}
-	public:
-		std::string my_to_string(int num)
-		{
-			this->str = str;
-			add_string(num);
-			return (this->str);
-		}
+	void setLastName(const std::string& lastName) {
+		lastName_ = lastName;
+	}
+
+	void setNickname(const std::string& nickname) {
+		nickname_ = nickname;
+	}
+
+	void setPhoneNumber(const std::string& phoneNumber) {
+		phoneNumber_ = phoneNumber;
+    }
+
+    void setDarkestSecret(const std::string& darkestSecret) {
+		darkestSecret_ = darkestSecret;
+    }
+
+    std::string getFirstName() const {
+		return firstName_;
+    }
+
+    std::string getLastName() const {
+		return lastName_;
+    }
+
+    std::string getNickname() const {
+		return nickname_;
+    }
+
+    std::string getPhoneNumber() const {
+		return phoneNumber_;
+    }
+
+    std::string getDarkestSecret() const {
+		return darkestSecret_;
+    }
+
+private:
+    std::string firstName_;
+    std::string lastName_;
+    std::string nickname_;
+    std::string phoneNumber_;
+    std::string darkestSecret_;
 };
-
-
-# endif
