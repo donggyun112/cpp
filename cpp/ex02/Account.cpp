@@ -6,13 +6,18 @@
 /*   By: dongkseo <dongkseo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 20:12:40 by dongkseo          #+#    #+#             */
-/*   Updated: 2023/06/09 22:43:18 by dongkseo         ###   ########.fr       */
+/*   Updated: 2023/06/09 23:14:33 by dongkseo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <iostream>
 #include <ctime>
+
+int	Account::_nbAccounts = 0;
+int	Account::_totalAmount = 0;
+int	Account::_totalNbDeposits = 0;
+int	Account::_totalNbWithdrawals = 0;
 
 Account::Account(void)
 {
@@ -52,15 +57,28 @@ int	Account::getNbDeposits( void ) {
 
 void Account::displayAccountsInfos( void ) {
 	_displayTimestamp();
+	std::cout	<< " accounts:" << getNbAccounts() \
+				<< ";total:";
 
 	
+}
+
+Account::Account ( int initial_deposit )  {
+	_accountIndex = _nbAccounts;
+	_amount = initial_deposit;
+	_nbDeposits = 0;
+	_nbWithdrawals = 0;
+	_nbAccounts++;
+	_totalAmount = _totalAmount + initial_deposit;
+	
+	_displayTimestamp();
+	
+	std::cout	<< " index:"  << _accountIndex \
+				<< ";amount:" << _amount \
+				<< ";created" << std::endl;
 }
 
 void Account::displayStatus( void ) const {
 	_displayTimestamp();
 	
-	std::cout 	<< "index:" << _accountIndex << ";" \
-				<< "amount:" << _amount << ";" \
-				<< "created" << std::endl;
-	
-}
+	std::cout;
