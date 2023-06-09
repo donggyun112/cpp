@@ -1,66 +1,40 @@
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-#include <iostream>
-#include <string>
-#include "command_accse.hpp"
-#include "phonebook.hpp"
+# include <iostream>
+# include <string>
+# include <stdio.h>
+#include <cstring>
+#include <stdlib.h>
 # include <iomanip>
+# include "phonebook.hpp"
+#include "contact.hpp"
 
-class PhoneBook;
+class Contact;
 
-
-class Contact {
+class PhoneBook{
 public:
+	PhoneBook() : contactCount_(0), oldContactIndex_(0) {}
+	void addContact(const Contact &contact);
 
-    Contact() {}
+	void searchContact();
 
-	void setFirstName(const std::string& firstName) {
-        firstName_ = firstName;
-    }
+	std::string my_to_string(int num);
 
-	void setLastName(const std::string& lastName) {
-		lastName_ = lastName;
-	}
-
-	void setNickname(const std::string& nickname) {
-		nickname_ = nickname;
-	}
-
-	void setPhoneNumber(const std::string& phoneNumber) {
-		phoneNumber_ = phoneNumber;
-    }
-
-    void setDarkestSecret(const std::string& darkestSecret) {
-		darkestSecret_ = darkestSecret;
-    }
-
-    std::string getFirstName() const {
-		return firstName_;
-    }
-
-    std::string getLastName() const {
-		return lastName_;
-    }
-
-    std::string const &getNickname() const {
-		return nickname_;
-    }
-
-    std::string getPhoneNumber() const {
-		return phoneNumber_;
-    }
-
-    std::string getDarkestSecret() const {
-		return darkestSecret_;
-    }
+	std::string string_num;
 
 private:
-    std::string firstName_;
-    std::string lastName_;
-    std::string nickname_;
-    std::string phoneNumber_;
-    std::string darkestSecret_;
+	static const int MAX_CONTACTS = 8;
+	
+    Contact contacts_[MAX_CONTACTS];
+    int contactCount_;
+    int oldContactIndex_;
+
+	std::string	cutString(std:: string str);
+
+	void	add_string(int num, std::string & string_num);
+
+	void	displaycontact(const Contact & contact);
 };
 
-# endif
+#endif

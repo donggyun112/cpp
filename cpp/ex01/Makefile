@@ -4,12 +4,15 @@ CC		= c++
 
 # source
 # ===============================================
-SRCS 								= phonebook
+SRCS 								= 	phonebook \
+										contact \
+										main
 # ===============================================
 
 SRC_CUR	= $(addsuffix .cpp, $(SRCS))
 OBJ		= $(SRC_CUR:.cpp=.o)
-HEAD	= phonebook.hpp
+HEAD1	= phonebook.hpp
+HEAD2	= contact.hpp
 
 Black   =\033[0;30m
 Red     =\033[0;31m
@@ -28,12 +31,12 @@ all : $(NAME)
 
 $(NAME) : $(OBJ) $(HEAD)
 	@printf "$(Green)"
-	$(CC) $(CFLAG) -I $(HEAD) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAG) -I $(HEAD1) -I $(HEAD2) $(OBJ) -o $(NAME)
 	@printf "$(DEF_COLOR)"
 
 .cpp.o :
 	@printf "$(Gray)"
-	$(CC) $(CFLAG) -I $(HEAD) -c -o $@ $<
+	$(CC) $(CFLAG) -I $(HEAD1) -I $(HEAD2) -c -o $@ $<
 	@printf "$(DEF_COLOR)"
 
 clean : 

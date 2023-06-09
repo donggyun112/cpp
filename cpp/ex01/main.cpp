@@ -1,10 +1,10 @@
 #include "phonebook.hpp"
-#include "command_accse.hpp"
+#include "contact.hpp"
 # include <iomanip>
 
 
 
-Contact    init_(Contact &contact, )
+void	init_(Contact &contact, PhoneBook &book)
 {
 	std::string firstname, lastname, nickname, phonenumber, secret;
 	std::cout << "firstname : ";
@@ -22,24 +22,25 @@ Contact    init_(Contact &contact, )
 	contact.setNickname(nickname);
 	contact.setPhoneNumber(phonenumber);
 	contact.setDarkestSecret(secret);
+
+	book.addContact(contact);
 }
 
 int main(void)
 {
 	std::string cmd;
 	Contact	contact;
+	PhoneBook	book;
 
-	while (1)
+	while (cmd != "EXIT")
 	{
 		std::cout<<"cmd(ADD/SEARCH/EXIT)";
 		std::getline(std::cin, cmd);
 		if (std::cin.eof() || std::cin.fail())
 			break ;
         if (cmd == "ADD")
-			init_(contact);
+			init_(contact, book);
 		if (cmd == "SEARCH")
-            book[i].SEARCH();
-        if (cdm == "EXIT")
-            book[i].EXIT();
+			book.searchContact();
 	}
 }
