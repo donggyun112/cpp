@@ -1,15 +1,17 @@
-NAME	= megaphone
+NAME	= Zombie
 CFLAG   = -Wall -Wextra -Werror -std=c++98
 CC		= c++
 
 # source
 # ===============================================
-SRCS 								= megaphone
+SRCS 								=	main \
+										zombieHorde \
+										Zombie \
 # ===============================================
 
 SRC_CUR	= $(addsuffix .cpp, $(SRCS))
 OBJ		= $(SRC_CUR:.cpp=.o)
-HEAD	=
+HEAD	= Zombie.hpp
 
 Black   =\033[0;30m
 Red     =\033[0;31m
@@ -28,12 +30,12 @@ all : $(NAME)
 
 $(NAME) : $(OBJ) $(HEAD)
 	@printf "$(Green)"
-	$(CC) $(CFLAG) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAG) -I $(HEAD) $(OBJ) -o $(NAME)
 	@printf "$(DEF_COLOR)"
 
 .cpp.o :
 	@printf "$(Gray)"
-	$(CC) $(CFLAG) -c -o $@ $<
+	$(CC) $(CFLAG) -I $(HEAD) -c -o $@ $<
 	@printf "$(DEF_COLOR)"
 
 clean : 

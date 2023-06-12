@@ -1,18 +1,18 @@
-NAME	= phonebook
+NAME	= Zombie
 CFLAG   = -Wall -Wextra -Werror -std=c++98
 CC		= c++
 
 # source
 # ===============================================
-SRCS 								= 	phonebook \
-										contact \
-										main
+SRCS 								=	main \
+										newZombie \
+										randomChump \
+										Zombie \
 # ===============================================
 
 SRC_CUR	= $(addsuffix .cpp, $(SRCS))
 OBJ		= $(SRC_CUR:.cpp=.o)
-HEAD1	= phonebook.hpp
-HEAD2	= contact.hpp
+HEAD	= Zombie.hpp
 
 Black   =\033[0;30m
 Red     =\033[0;31m
@@ -31,12 +31,12 @@ all : $(NAME)
 
 $(NAME) : $(OBJ) $(HEAD)
 	@printf "$(Green)"
-	$(CC) $(CFLAG) -I $(HEAD1) -I $(HEAD2) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAG) -I $(HEAD) $(OBJ) -o $(NAME)
 	@printf "$(DEF_COLOR)"
 
 .cpp.o :
 	@printf "$(Gray)"
-	$(CC) $(CFLAG) -I $(HEAD1) -I $(HEAD2) -c -o $@ $<
+	$(CC) $(CFLAG) -I $(HEAD) -c -o $@ $<
 	@printf "$(DEF_COLOR)"
 
 clean : 
