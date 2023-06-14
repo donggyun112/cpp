@@ -1,5 +1,5 @@
 NAME	= replace
-CXXFLAG  = -Wall -Wextra -Werror -std=c++98
+CXXFLAG  = -Wall -Wextra -Werror -std=c++98 -g3
 CXX		= c++
 
 # source

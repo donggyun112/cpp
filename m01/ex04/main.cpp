@@ -20,15 +20,16 @@ void	replaceInfile(std::string filename, std::string s1, std::string s2) {
 	}
 
 	std::string line;
+	char	buff;
 	size_t	st = 0, en = 0;
-	while (std::getline(openFile >> std::noskipws, line)) {
-		while ((en = line.find(s1, st)) != std::string::npos) {
-            line.erase(en, s1.length());
-            line.insert(en, s2);
+	while (openFile.read(&buff, 1))
+		line += buff;
+	while ((en = line.find(s1, st)) != std::string::npos) {
+    		line.erase(en, s1.length());
+    		line.insert(en, s2);
             st = en + s2.length();
-        }
-		outFile << line;
-	}
+    }
+	outFile << line;
 }
 
 int main(int ac, char **av)
