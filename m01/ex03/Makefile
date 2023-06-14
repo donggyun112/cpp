@@ -1,6 +1,6 @@
 NAME	= Weapon
-CFLAG   = -Wall -Wextra -Werror -std=c++98
-CC		= c++
+CXXFLAG   = -Wall -Wextra -Werror -std=c++98
+CXX		= c++
 
 # source
 # ===============================================
@@ -33,12 +33,12 @@ all : $(NAME)
 
 $(NAME) : $(OBJ) $(HEAD)
 	@printf "$(Green)"
-	$(CC) $(CFLAG) -I $(HEAD_A) -I $(HEAD_B) -I $(HEAD_W) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAG) -I $(HEAD_A) -I $(HEAD_B) -I $(HEAD_W) $(OBJ) -o $(NAME)
 	@printf "$(DEF_COLOR)"
 
 .cpp.o :
 	@printf "$(Gray)"
-	$(CC) $(CFLAG) -I $(HEAD_A) -I $(HEAD_B) -I $(HEAD_W) -c -o $@ $<
+	$(CXX) $(CXXFLAG) -I $(HEAD_A) -I $(HEAD_B) -I $(HEAD_W) -c -o $@ $<
 	@printf "$(DEF_COLOR)"
 
 clean : 

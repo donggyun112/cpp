@@ -1,6 +1,6 @@
 NAME	= Harl
-CFLAG   = -Wall -Wextra -Werror -std=c++98 -g3
-CC		= c++
+CXXFLAG   = -Wall -Wextra -Werror -std=c++98
+CXX		= c++
 
 # source
 # ===============================================
@@ -29,12 +29,12 @@ all : $(NAME)
 
 $(NAME) : $(OBJ) $(HEAD)
 	@printf "$(Green)"
-	$(CC) $(CFLAG) -I $(HEAD) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAG) -I $(HEAD) $(OBJ) -o $(NAME)
 	@printf "$(DEF_COLOR)"
 
 .cpp.o :
 	@printf "$(Gray)"
-	$(CC) $(CFLAG) -I $(HEAD) -c -o $@ $<
+	$(CXX) $(CXXFLAG) -I $(HEAD) -c -o $@ $<
 	@printf "$(DEF_COLOR)"
 
 clean : 

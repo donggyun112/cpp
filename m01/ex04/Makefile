@@ -1,6 +1,6 @@
 NAME	= replace
-CFLAG   = -Wall -Wextra -Werror -std=c++98 -g3
-CC		= c++
+CXXFLAG   = -Wall -Wextra -Werror -std=c++98
+CXX		= c++
 
 # source
 # ===============================================
@@ -28,12 +28,12 @@ all : $(NAME)
 
 $(NAME) : $(OBJ) $(HEAD)
 	@printf "$(Green)"
-	$(CC) $(CFLAG) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAG) $(OBJ) -o $(NAME)
 	@printf "$(DEF_COLOR)"
 
 .cpp.o :
 	@printf "$(Gray)"
-	$(CC) $(CFLAG) -c -o $@ $<
+	$(CXX) $(CXXFLAG) -c -o $@ $<
 	@printf "$(DEF_COLOR)"
 
 clean : 
