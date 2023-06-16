@@ -101,3 +101,11 @@ Fixed Fixed::operator/(const Fixed& other) const {
 	ret._fixedPointValue = _fixedPointValue / other._fixedPointValue;
 	return (ret);
 }
+
+Fixed& Fixed::min(const Fixed& other1, const Fixed& other2) {
+	
+}
+
+Fixed& Fixed::operator++() {
+	this->_fixedPointValue
+}

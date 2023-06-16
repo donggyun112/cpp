@@ -29,10 +29,14 @@ class Fixed
 		bool operator==(const Fixed& other) const;
 		bool operator!=(const Fixed& other) const;
 
-		Fixed Fixed::operator+(const Fixed& ohers) const;
-		Fixed Fixed::operator-(const Fixed& other) const;
-		Fixed Fixed::operator*(const Fixed& other) const;
-		Fixed Fixed::operator/(const Fixed& other) const;
+		Fixed operator+(const Fixed& ohers) const;
+		Fixed operator-(const Fixed& other) const;
+		Fixed operator*(const Fixed& other) const;
+		Fixed operator/(const Fixed& other) const;
+
+		Fixed& operator++();
+
+		static Fixed& min(const Fixed& other1, const Fixed& other2);
 	private:
 		int	_fixedPointValue;
 		const static int _bits = 8;
