@@ -5,9 +5,7 @@ Fixed::Fixed() : _fixedPointValue(0) {}
 
 Fixed::Fixed(const int newFixedPontValue) : _fixedPointValue(newFixedPontValue << _bits) {}
 
-Fixed::Fixed(const Fixed& other) : _fixedPointValue(other._fixedPointValue) {
-	*this = other;
-}
+Fixed::Fixed(const Fixed& other) : _fixedPointValue(other._fixedPointValue) {}
 
 Fixed::Fixed(const float floatvalue) : _fixedPointValue(roundf(floatvalue * (1 << _bits))) {}
 
