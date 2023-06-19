@@ -14,12 +14,12 @@ Point Point::operator=(const Point& otehr) {
 	return (*this);
 }
 
-Point::~Point() {};
-
-float Point::getX() {
+Fixed Point::getX() const{
 	return (_x);
 }
 
-float Point::getX() {
+Fixed Point::getY() const{
 	return (_y);
 }
+
+Point::~Point() {};
