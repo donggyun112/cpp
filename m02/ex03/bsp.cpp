@@ -9,9 +9,9 @@ int getSign(Point a, Point b, Point c) {
 }
 
 bool bsp(const Point a, const Point b, const Point c, const Point point) {
-    int d1 = getSign(point, a, b);
-    int d2 = getSign(point, b, c);
-    int d3 = getSign(point, c, a);
+    int d1 = getSign(a, b, point);
+    int d2 = getSign(b, c, point);
+    int d3 = getSign(c, a, point);
 
     return (d1 > 0 && d2 > 0 && d3 > 0) || (d1 < 0 && d2 < 0 && d3 < 0);
 }
