@@ -5,7 +5,7 @@ int getSign(Point a, Point b, Point c) {
     float y1 = a.getY().toFloat() - b.getY().toFloat();
     float x2 = a.getX().toFloat() - c.getX().toFloat();
     float y2 = a.getY().toFloat() - c.getY().toFloat();
-    return static_cast<int>((x1 * y2) - (y1 * x2));
+    return ((x1 * y2) - (y1 * x2));
 }
 
 bool bsp(const Point a, const Point b, const Point c, const Point point) {
