@@ -14,8 +14,8 @@ class Point
 		Fixed getY() const;
 		~Point();
 	private:
-		float _x;
-		float _y;
+		const Fixed _x;
+		const Fixed _y;
 };
 
 bool bsp(const Point a, const Point b, const Point c, const Point point);
