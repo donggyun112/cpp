@@ -1,4 +1,4 @@
-NAME	= ClapTrap
+NAME	= ScavTrap
 CXXFLAG   = -Wall -Wextra -Werror -std=c++98
 CXX		= c++
 
@@ -6,11 +6,13 @@ CXX		= c++
 # ===============================================
 SRCS 								=	ClapTrap \
 										main \
+										ScavTrap
 # ===============================================
 
 SRC_CUR	= $(addsuffix .cpp, $(SRCS))
 OBJ		= $(SRC_CUR:.cpp=.o)
 HEAD	= ClapTrap.hpp
+HEAD2	= ScavTrap.hpp
 
 Black   =\033[0;30m
 Red     =\033[1;31m
@@ -28,12 +30,12 @@ DEF_COLOR = \033[0;39m
 all : $(NAME)
 
 $(NAME) : $(OBJ) $(HEAD)
-	$(CXX) $(CXXFLAG) -I $(HEAD) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAG) -I $(HEAD) -I $(HEAD2) $(OBJ) -o $(NAME)
 	@echo "\033[1;32mCompilation complete. $(NAME) has been created.\033[0m"
 
 
 .cpp.o :
-	$(CXX) $(CXXFLAG) -I $(HEAD) -c -o $@ $<
+	$(CXX) $(CXXFLAG) -I $(HEAD) -I $(HEAD2) -c -o $@ $<
 	@echo "\033[1;34mCompiling $<...\033[0m"
 clean : 
 	@rm -rf *.o

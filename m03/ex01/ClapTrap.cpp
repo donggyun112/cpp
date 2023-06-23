@@ -1,23 +1,21 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::
-ClapTrap(const std::string newName) 
+ClapTrap::ClapTrap(const std::string newName) 
 	: _name(newName), _hitPoint(10), _energyPoints(10), _attackDamage(0) {
 	std::cout << "ClapTrap " << _name << " has been created!" << std::endl;
 }
 
-ClapTrap::
-ClapTrap() 
+ClapTrap::ClapTrap() 
 	: _name("default"), _hitPoint(10), _energyPoints(10), _attackDamage(0) {
 	std::cout << "ClapTrap " << _name << " has been created!" << std::endl;
 }
 
-ClapTrap::
-ClapTrap(ClapTrap& other) {
+ClapTrap::ClapTrap(ClapTrap& other) {
 	*this = other;
 }
 
-ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
+ClapTrap& 
+ClapTrap::operator=(const ClapTrap& other) {
 	if (this != &other) {
 		_name = other._name;
 		_hitPoint = other._hitPoint;
@@ -27,13 +25,12 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
 	return (*this);
 }
 
-ClapTrap::
-~ClapTrap() {
+ClapTrap::~ClapTrap() {
 	std::cout << _name <<" ClapTrap Destroy Constructor called" << std::endl;
 }
 
-void ClapTrap::
-attack(const std::string& target) {
+void 
+ClapTrap::attack(const std::string& target) {
 	if (_hitPoint <= 0 || _energyPoints <= 0) {
 		std::cout << "ClapTrap " << _name << " can't attack. It has no hit points or energy points left." << std::endl;
 		return ;
@@ -42,8 +39,8 @@ attack(const std::string& target) {
 	_energyPoints -= 1;
 }
 
-void ClapTrap::
-takeDamage(unsigned int amount) {
+void 
+ClapTrap::takeDamage(unsigned int amount) {
 	if (_hitPoint <= 0) {
 		std::cout << "ClapTrap " << _name << " already died" << std::endl;
 		return ;
@@ -56,8 +53,8 @@ takeDamage(unsigned int amount) {
     }
 }
 
-void ClapTrap::
-beRepaired(unsigned int amount) {
+void 
+ClapTrap::beRepaired(unsigned int amount) {
     if (_hitPoint <= 0) {
         std::cout << "ClapTrap " << _name << " can't be repaired. It has been destroyed." << std::endl;
         return;
@@ -73,14 +70,17 @@ beRepaired(unsigned int amount) {
     _energyPoints -= 1;
 }
 
-int ClapTrap::getHitpoint() {
+int 
+ClapTrap::getHitpoint() {
 	return (_hitPoint);
 }
 
-int ClapTrap::getAttackDamage() {
+int 
+ClapTrap::getAttackDamage() {
 	return (_attackDamage);
 }
 
-int ClapTrap::getEnergyPoint() {
+int 
+ClapTrap::getEnergyPoint() {
 	return (_energyPoints);
 }
