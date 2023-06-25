@@ -1,15 +1,15 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(const std::string& name) {
+ScavTrap::ScavTrap(const std::string& name) 
+	: ClapTrap(name) {
 	_hitPoint = 100;
-	_name = name;
 	_energyPoints = 50;
 	_attackDamage = 20;
 	std::cout << "ScavTrap " << _name << " has been created!" << std::endl;
 }
 
-ScavTrap::ScavTrap() {
-	_name = "defalut";
+ScavTrap::ScavTrap()
+	: ClapTrap("defalut") {
 	_hitPoint = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;	
