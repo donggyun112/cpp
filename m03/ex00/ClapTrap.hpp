@@ -17,6 +17,8 @@ class ClapTrap
 		int getHitpoint();
 		int getEnergyPoint();
 		int getAttackDamage();
+		
+
 		ClapTrap(const std::string newName);
 		ClapTrap(ClapTrap& other);
 		ClapTrap();

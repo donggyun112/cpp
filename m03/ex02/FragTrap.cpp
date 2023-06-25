@@ -1,15 +1,15 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(const std::string& name) {
-	_name = name;
+FragTrap::FragTrap(const std::string& name) 
+	: ClapTrap(name) {
 	_hitPoint = 100;
 	_energyPoints = 100;
 	_attackDamage = 30;
 	std::cout << "FragTrap " << _name << " has bennd created!" << std::endl;
 }
 
-FragTrap::FragTrap() {
-	_name = "defalut";
+FragTrap::FragTrap() 
+	: ClapTrap("defalut") {
 	_hitPoint = 100;
 	_energyPoints = 100;
 	_attackDamage = 30;

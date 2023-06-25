@@ -1,18 +1,18 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(const std::string& name) {
-	_name = name;
-	_hitPoint = 100;
-	_energyPoints = 100;
-	_attackDamage = 30;
+FragTrap::FragTrap(const std::string& name) 
+	: ClapTrap(name) {
+	FragTrap::_hitPoint = 100;
+	FragTrap::_energyPoints = 100;
+	FragTrap::_attackDamage = 30;
 	std::cout << "FragTrap " << _name << " has bennd created!" << std::endl;
 }
 
-FragTrap::FragTrap() {
-	_name = "defalut";
-	_hitPoint = 100;
-	_energyPoints = 100;
-	_attackDamage = 30;
+FragTrap::FragTrap() 
+	: ClapTrap("defalut") {
+	FragTrap::_hitPoint = 100;
+	FragTrap::_energyPoints = 100;
+	FragTrap::_attackDamage = 30;
 	std::cout << "FragTrap Default Constructor called" << std::endl;
 }
 

@@ -1,4 +1,4 @@
-NAME	= FragTrap
+NAME	= DiamondTrap
 CXXFLAG   = -Wall -Wextra -Werror -std=c++98
 CXX		= c++
 
@@ -7,12 +7,13 @@ CXX		= c++
 SRCS 								=	ClapTrap \
 										main \
 										ScavTrap \
-										FragTrap
+										FragTrap \
+										DiamondTrap
 # ===============================================
 
 SRC_CUR	= $(addsuffix .cpp, $(SRCS))
 OBJ		= $(SRC_CUR:.cpp=.o)
-HEAD	= ClapTrap.hpp	ScavTrap.hpp FragTrap.hpp
+HEAD	= ClapTrap.hpp	ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
 
 Black   =\033[0;30m
 Red     =\033[1;31m

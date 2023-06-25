@@ -10,7 +10,12 @@ ClapTrap::ClapTrap()
 	std::cout << "ClapTrap " << _name << " has been created!" << std::endl;
 }
 
-ClapTrap::ClapTrap(ClapTrap& other) {
+ClapTrap::ClapTrap(const std::string newName, int Hp, int Ep, int Ad)
+	: _name(newName), _hitPoint(Hp), _energyPoints(Ep), _attackDamage(Ad) {
+		std::cout << "ClapTrap " << _name << "qwe has been created!" << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap& other) {
 	*this = other;
 }
 
@@ -83,4 +88,9 @@ ClapTrap::getAttackDamage() {
 int 
 ClapTrap::getEnergyPoint() {
 	return (_energyPoints);
+}
+
+std::string
+ClapTrap::getName() {
+	return (_name);
 }
