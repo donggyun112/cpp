@@ -12,7 +12,7 @@ DiamondTrap::DiamondTrap(const DiamondTrap& other) : ClapTrap(other), ScavTrap(o
 	std::cout << "DiamondTrap " << _name << " copy constructor called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const std::string& Name) : ClapTrap(Name + "_dlacp_name"), _name(Name) {
+DiamondTrap::DiamondTrap(const std::string& Name) : ClapTrap(Name + "_lacp_name"), _name(Name) {
 	_energyPoints = 50;
 	_hitPoint = 100;
 	_attackDamage = 30;
