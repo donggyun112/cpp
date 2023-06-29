@@ -8,13 +8,12 @@ SRCS 								=	main \
 										Animal \
 										Cat \
 										Dog \
-										WrongCat \
-										WrongAnimal \
+										Brain
 # ===============================================
 
 SRC_CUR	= $(addsuffix .cpp, $(SRCS))
 OBJ		= $(SRC_CUR:.cpp=.o)
-HEAD	= Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp
+HEAD	= Animal.hpp Dog.hpp Cat.hpp Brain.hpp
 
 Black   =\033[0;30m
 Red     =\033[1;31m
