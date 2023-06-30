@@ -2,12 +2,12 @@
 
 AMateria::AMateria() 
 	: _type("Defalut") {
-	std::cout << "AMateria" << _type << " has been created!" << std::endl;
+	std::cout << "AMateria " << _type << " has been created!" << std::endl;
 }
 
 AMateria::AMateria(std::string const &type)
 	: _type(type) {
-	std::cout << "AMateria" << _type << " has been created!" << std::endl;
+	std::cout << "AMateria " << _type << " has been created!" << std::endl;
 }
 
 AMateria::~AMateria() {
@@ -32,5 +32,5 @@ std::string const &AMateria::getType() const {
 }
 
 void AMateria::use(ICharacter& target){
-    std::cout << "AMateria "<< target.getName() << " USE" << std:: endl;
+	std::cout << "AMateria "<< target.getName() << " USE" << std:: endl;
 }

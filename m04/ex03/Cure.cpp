@@ -13,7 +13,7 @@ Cure *Cure::clone() const {
 }
 
 Cure& Cure::operator=(const Cure& other) {
-	std::cout << "Ice Copy assignment operator called" << std::endl;
+	std::cout << "cure Copy assignment operator called" << std::endl;
 	if (this != &other) {
 		AMateria::operator=(other);
 	}
@@ -21,5 +21,5 @@ Cure& Cure::operator=(const Cure& other) {
 }
 
 void Cure::use(ICharacter &target) {
-	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+	std::cout << "* shoots an cure bolt at " << target.getName() << " *" << std::endl;
 }

@@ -1,14 +1,14 @@
 #include "Character.hpp"
 
 Character::Character() : name("Defalut") {
-	std::cout << "Charcter" << name << " has been created!" << std::endl;
+	std::cout << "Charcter " << name << " has been created!" << std::endl;
 	for (int i = 0; i < 4; i++) {
 		inventory[i] = NULL;
 	}
 }
 
 Character::Character(const std::string& newName) : name(newName) {
-	std::cout << "Charcter" << name << " has been created!" << std::endl;
+	std::cout << "Charcter " << name << " has been created!" << std::endl;
 	for (int i = 0; i < 4; i++) {
 		inventory[i] = NULL;
 	}
@@ -30,12 +30,13 @@ void Character::equip(AMateria *m) {
 void Character::unequip(int idx) {
 	if (idx < 0 || idx >= 4)
 		return ;
+	std::cout << name << " unequip " << inventory[idx]->getType() << std::endl;
 	delete inventory[idx];
 	inventory[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter &target) {
-	if (idx < 0 || idx >= 4)
+	if (idx < 0 || idx >= 4 || inventory[idx] == NULL)
 		return ;
 	inventory[idx]->use(target);
 	delete inventory[idx];
@@ -51,24 +52,9 @@ Character& Character::operator=(const Character& other) {
 
 			delete inventory[i];
 			if (other.inventory[i] == NULL) {
-
-				continue;
-			}
-			if (other.inventory[i]->getType() == "Ice") {
-
-				inventory[i] = new Ice();
-			} 
-			else if (other.inventory[i]->getType() == "Cure") {
-
-				inventory[i] = new Cure();
-			} 
-			else if (other.inventory[i] != NULL) {
-
-				inventory[i] = other.inventory[i];
-			} 
-			else {
-
 				inventory[i] = NULL;
+			} else {
+				inventory[i] = other.inventory[i]->clone();
 			}
 		}
 	}
@@ -77,19 +63,17 @@ Character& Character::operator=(const Character& other) {
 
 Character::Character(const Character& other) {
 	std::cout << "Character Copy constructor called" << std::endl;
-	for (int i = 0; i < 4; i++) {
-		if (other.inventory[i]->getType() == "Ice") {
-			delete inventory[i];
-			inventory[i] = new Ice();
-		}
-		else if (other.inventory[i]->getType() == "Cure") {
-			delete inventory[i];
-			inventory[i] = new Cure();
-		} else if (other.inventory[i] != NULL) {
-			delete inventory[i];
-			inventory[i] = other.inventory[i];
-		} else {
-			inventory[i] = NULL;
+	if (this != &other)
+	{
+		name = other.name;
+		for (int i = 0; i < 4; i++) {
+
+			if (other.inventory[i] == NULL) {
+				inventory[i] = NULL;
+			}
+			else {
+				inventory[i] = other.inventory[i]->clone();
+			}
 		}
 	}
 }
