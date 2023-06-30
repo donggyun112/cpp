@@ -14,19 +14,6 @@ AMateria::~AMateria() {
 	std::cout << "AMateria Destructor called" << std::endl;
 }
 
-AMateria::AMateria(const AMateria& other) {
-	*this = other;
-	std::cout << "AMateria Copy constructor called" << std::endl;
-}
-
-AMateria& AMateria::operator=(const AMateria& other) {
-	std::cout << "AMateria Copy assignment operator called" << std::endl;
-	if (this != &other) {
-		_type = other._type;
-	}
-	return (*this);
-}
-
 std::string const &AMateria::getType() const {
 	return (_type);
 }

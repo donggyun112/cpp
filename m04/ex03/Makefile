@@ -5,15 +5,16 @@ CXX		= c++
 # source
 # ===============================================
 SRCS 								=	AMateria \
+ 										MateriaSource \
 										Cure \
 										Ice \
 										Character \
-										main
+										main \
 # ===============================================
 
 SRC_CUR	= $(addsuffix .cpp, $(SRCS))
 OBJ		= $(SRC_CUR:.cpp=.o)
-HEAD	= AMateria.hpp Cure.hpp Ice.hpp ICharacter.hpp Character.hpp ICharacter.hpp
+HEAD	= AMateria.hpp Cure.hpp Ice.hpp ICharacter.hpp Character.hpp ICharacter.hpp IMateriaSource.hpp MateriaSource.hpp
 
 Black   =\033[0;30m
 Red     =\033[1;31m

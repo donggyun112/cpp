@@ -1,5 +1,5 @@
 #ifndef MATERIASOURCE_HPP
-# define MATERIASOURCE
+# define MATERIASOURCE_HPP
 
 #include "IMateriaSource.hpp"
 #include <iostream>
@@ -7,9 +7,14 @@
 class MateriaSource : public IMateriaSource
 {
 	private:
-		std::string _type;
+		AMateria* learnedMaterias[4];
 	public:
-		
+		MateriaSource();
+		MateriaSource(const MateriaSource& other);
+		MateriaSource& operator=(const MateriaSource& other);
+		~MateriaSource();
+		void learnMateria(AMateria* m);
+		AMateria* createMateria(std::string const & type);
 };
 
 #endif
